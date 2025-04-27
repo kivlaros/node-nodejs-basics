@@ -11,6 +11,8 @@ const calculateHash = async () => {
           .on('end', () => {
             const hexHash = hash.digest('hex');
             console.log(hexHash);
+          }).on('error', (error) => {
+            throw new Error(`File read error: ${error.message}`);
           })
         } catch (err) {
             console.log(err)
