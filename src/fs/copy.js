@@ -1,6 +1,8 @@
 import { promises as fs } from 'fs';
 import { access, constants } from 'node:fs/promises';
 
+const errorMessage = 'FS operation failed'
+
 const copy = async () => {
     try{
         await errorHandler('files', 'files_copy')
@@ -14,19 +16,11 @@ const copy = async () => {
 await copy();
 
 async function errorHandler(filesPath,copyPath) {
-    let isCopyPathExist = false
-    try {
-        await access(filesPath, constants.R_OK | constants.W_OK);
-    } catch{
-        throw new Error('FS operation failed')
-    }
-    try {
-        await access(copyPath, constants.R_OK | constants.W_OK);
-        isCopyPathExist = true
-    } catch{
-    }
-    if(isCopyPathExist){
-        throw new Error('FS operation failed')
+    const isFilesExist = await access(filesPath, constants.F_OK).then(() => true).catch(() => false);
+    const isCopyExist = await access(copyPath, constants.F_OK).then(() => true).catch(() => false);
+
+    if(!isFilesExist||isCopyExist){
+        throw new Error(errorMessage)
     }
     
 }
