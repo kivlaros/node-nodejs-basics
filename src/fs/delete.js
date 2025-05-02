@@ -1,7 +1,7 @@
 import { promises as fs } from 'fs'
 import { access, constants } from 'node:fs/promises';
 
-const filePath = './files/fileToRemove.txt'
+const filePath = './src/fs/files/fileToRemove.txt'
 const errorMessage = 'FS operation failed'
 
 const remove = async () => {

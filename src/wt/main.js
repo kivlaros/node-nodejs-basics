@@ -15,7 +15,7 @@ await performCalculations();
 
 function runWorker(workerIndex, initialValue){
     return new Promise((res)=>{
-        const worker = new Worker('./worker.js')
+        const worker = new Worker('./src/wt/worker.js')
         worker.postMessage(initialValue + workerIndex)
         worker.on('message', (result) => {
             res({ ...result});

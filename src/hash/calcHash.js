@@ -3,7 +3,7 @@ import { createHash } from 'crypto';
 
 const calculateHash = async () => {
     try {
-        const readStream = createReadStream('./files/fileToCalculateHashFor.txt');
+        const readStream = createReadStream('./src/hash/files/fileToCalculateHashFor.txt');
         const hash = createHash('sha256');
     
         readStream

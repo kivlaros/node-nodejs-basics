@@ -5,9 +5,9 @@ const errorMessage = 'FS operation failed'
 
 const copy = async () => {
     try{
-        await errorHandler('files', 'files_copy')
-        await fs.mkdir('files_copy');
-        await fs.cp('files', 'files_copy',{ recursive: true });
+        await errorHandler('./src/fs/files', './src/fs/files_copy')
+        await fs.mkdir('./src/fs/files_copy');
+        await fs.cp('./src/fs/files', './src/fs/files_copy',{ recursive: true });
     }catch(err){
      console.log(err)
     }

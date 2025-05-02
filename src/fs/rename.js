@@ -1,8 +1,8 @@
 import { promises as fs } from 'fs'
 import { access, constants } from 'node:fs/promises';
 
-const filePath = './files/wrongFilename.txt'
-const newFilePath = './files/properFilename.md'
+const filePath = './src/fs/files/wrongFilename.txt'
+const newFilePath = './src/fs/files/properFilename.md'
 const errorMessage = 'FS operation failed'
 
 const rename = async () => {

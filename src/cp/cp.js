@@ -2,7 +2,7 @@ import { spawn } from 'child_process';
 
 const spawnChildProcess = async (args) => {
     const child = spawn('node', [
-        './files/script.js',
+        './src/cp/files/script.js',
         ...args
     ])
     process.stdin.pipe(child.stdin)

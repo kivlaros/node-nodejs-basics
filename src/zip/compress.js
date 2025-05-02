@@ -2,8 +2,8 @@ import { createReadStream, createWriteStream } from 'fs';
 import { createGzip } from 'zlib';
 
 const compress = async () => {
-    const readStream = createReadStream('./files/fileToCompress.txt');
-    const writeStream = createWriteStream('./files/archive.gz');
+    const readStream = createReadStream('./src/zip/files/fileToCompress.txt');
+    const writeStream = createWriteStream('./src/zip/files/archive.gz');
     const gzip = createGzip();
 
     readStream

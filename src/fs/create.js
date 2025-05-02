@@ -1,7 +1,7 @@
 import { promises as fs } from 'fs'
 import { access, constants } from 'node:fs/promises';
 
-const filePath = './files/fresh.txt'
+const filePath = './src/fs/files/fresh.txt'
 const errorMessage = 'FS operation failed'
 
 const create = async () => {
